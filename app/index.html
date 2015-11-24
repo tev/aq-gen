@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Arcadia Quest Card Builder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+    
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    
+    <div class="container">
+      <header>
+        <ul class="nav nav-pills pull-right" id="main-selection">
+          <li class="active"><a href="javascript:void(0)" data-panel="hero">Hero</a></li>
+          <li><a href="javascript:void(0)" data-panel="monster">Monster</a></li>
+          <li><a href="javascript:void(0)" data-panel="quest">Quest</a></li>
+          <li><a href="javascript:void(0)" data-panel="upgrade">Upgrade</a></li>
+        </ul>
+        <h3>Arcadia Quest Card Builder</h3>
+      </header>
+
+      <div class="offscreen">
+        <img id="hero-src" crossOrigin="anonymous" src="images/blank-image.png" alt="hero image" class="offscreen" />
+        <img id="monster-src" crossOrigin="anonymous" src="images/blank-image.png" alt="hero image" class="offscreen" />
+        <div style="font-family: kingthings_petrockregular" class="offscreen">.</div>
+        <div style="font-family: merienda_oneregular" class="offscreen">.</div>
+
+        <img id="placeholder-hero" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Hero.jpg" />
+        <img id="placeholder-monster" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Monster Melee Level 1.jpg" />
+        <img id="placeholder-quest" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Quest.jpg" />
+        <img id="placeholder-upgrade" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Upgrade Attack Melee.jpg" />
+      </div>
+
+
+      <div class="row generator-panel" id="hero-generator">
+        <div id="hero-cards" class="col-xs-12 col-md-7 center">
+          <div class="progress" style="display:none">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+              Generating
+            </div>
+          </div>
+          
+
+
+        </div>
+
+        <div class="col-xs-12 col-md-5 form-area">
+        <form method="get" action="/" id="hero-form" role="form">
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="hero-name">Hero Name</label>
+            <input type="text" class="form-control" name="hero-name" id="hero-name" value="Greensleeves">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="hero-image">Hero Image URL</label>
+            <input type="text" class="form-control" name="hero-image" id="hero-image" value="http://orig07.deviantart.net/fabc/f/2010/248/3/a/bidoof_chibi_by_inintendo-d2y30k2.png">
+            <!-- <input type="text" class="form-control" name="hero-image" id="hero-image" value="images/greensleeves.png"> -->
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="defense">Defense</label>
+            <input type="text" class="form-control" name="defense" id="defense" value="2">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="health">Health</label>
+            <input type="text" class="form-control" name="health" id="health" value="4">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="skill-name">Ability Name</label>
+            <input type="text" class="form-control" name="skill-name" id="skill-name" value="Bow Mastery">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="skill-description">Ability Description</label>
+            <textarea class="form-control" name="skill-description" id="skill-description" rows="3">When attacking with a Bow attack card, each critical deals one additional hit.</textarea>
+          </div>
+          <div class="form-group col-xs-12">
+            <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />
+          </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="row generator-panel" id="monster-generator">
+        <div class="col-xs-12 col-md-7 center">
+          <div class="monster">
+            <div class="picture"></div>
+            <div class="overlay"></div>
+            <div class="defense-overlay"></div>
+            <div class="ranged-overlay"></div>
+            <div class="name"></div>
+            <div class="tier"></div>
+            <div class="gold"></div>
+            <div class="health"></div>
+            <div class="overkill"></div>
+            <div class="defense"></div>
+            <div class="movement"></div>
+            <div class="attack"></div>
+            <div class="ability"></div>
+            <div class="description"></div>
+            <div class="reroll"></div>
+          </div>
+        </div>
+      
+        <div class="col-xs-12 col-md-5 form-area">
+        <form id="monster-form" role="form">
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-name">Monster Name</label>
+            <input type="text" class="form-control" id="monster-name" value="FlowerCat">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-image">Monster Image</label>
+            <input type="text" class="form-control" id="monster-image" value="http://img3.wikia.nocookie.net/__cb20111104195313/fairytail/images/e/e0/Chibi_Pantherlily.png">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-level">Level</label>
+            <select class="form-control" id="monster-level">
+              <option value="1">1</option>
+              <option value="2-3">2-3</option>
+              <option value="4-5">4-5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-tier">Monster Tier</label>
+            <input type="text" class="form-control" id="monster-tier" value="Minor Minion">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-attack-type">Attack Type</label>
+            <select class="form-control" id="monster-attack-type">
+              <option value="Melee">Melee</option>
+              <option value="Ranged">Ranged</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-defense">Defense</label>
+            <input type="text" class="form-control" id="monster-defense" value="">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-health">Health</label>
+            <input type="text" class="form-control" id="monster-health" value="2">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-overkill">Overkill</label>
+            <input type="text" class="form-control" id="monster-overkill" value="4">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-reward">Reward</label>
+            <input type="text" class="form-control" id="monster-reward" value="2">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-movement">Movement</label>
+            <input type="text" class="form-control" id="monster-movement" value="2">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-attack">Attack</label>
+            <input type="text" class="form-control" id="monster-attack" value="3">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-skill-name">Ability Name</label>
+            <input type="text" class="form-control" id="monster-skill-name" value="Cat Scratch">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="monster-skill-description">Ability Description</label>
+            <textarea class="form-control" id="monster-skill-description" rows="3"></textarea>
+          </div>
+          <div class="form-group col-xs-12">
+            <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />
+          </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="row generator-panel" id="quest-generator">
+        <div class="col-xs-12 col-md-7 center">
+        </div>
+
+        <div class="col-xs-12 col-md-5 form-area">
+        <form method="get" action="/" id="quest-form" role="form">
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="quest-name">Quest Name</label>
+            <input type="text" class="form-control" name="quest-name" id="quest-name" value="Jaeger Bomb">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="quest-image">Quest Image URL</label>
+            <input type="text" class="form-control" name="quest-image" id="quest-image" value="images/greensleeves.png">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="quest-description">Quest Description</label>
+            <textarea class="form-control" name="quest-description" id="quest-description" rows="3">When wounded and attacking with a Sword attack card, roll an extra attack die for each wound.</textarea>
+          </div>
+          <div class="form-group col-xs-12">
+            <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />
+          </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="row generator-panel" id="upgrade-generator">
+        <div class="col-xs-12 col-md-7 center">
+        </div>
+
+        <div class="col-xs-12 col-md-5 form-area">
+        <form method="get" action="/" id="upgrade-form" role="form">
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-name">Upgrade Name</label>
+            <input type="text" class="form-control" name="upgrade-name" id="upgrade-name" value="Jaeger Bomb">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-image">Upgrade Image URL</label>
+            <input type="text" class="form-control" name="upgrade-image" id="upgrade-image" value="images/greensleeves.png">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-subname">Subname</label>
+            <input type="text" class="form-control" name="health" id="upgrade-subname" value="5">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-cost">Cost</label>
+            <input type="text" class="form-control" name="health" id="upgrade-cost" value="5">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-type">Upgrade Type</label>
+            <select class="form-control" id="upgrade-type">
+              <option value="Melee">Melee Attack</option>
+              <option value="Ranged">Ranged Attack</option>
+              <option value="Boost">Boost</option>
+              <option value="Permanent">Permanent</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-level">Level</label>
+            <select class="form-control" id="upgrade-level">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-category">Category</label>
+            <input type="text" class="form-control" name="health" id="upgrade-category" value="5">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-attack">Attack</label>
+            <input type="text" class="form-control" name="health" id="upgrade-attack" value="5">
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="upgrade-description">Upgrade Description</label>
+            <textarea class="form-control" name="skill-description" id="upgrade-description" rows="3">When wounded and attacking with a Sword attack card, roll an extra attack die for each wound.</textarea>
+          </div>
+          <div class="form-group col-xs-12">
+            <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />
+          </div>
+        </form>
+        </div>
+      </div>
+
+      <footer>
+        This is a fan site made by Tev Kaber. <a href="http://arcadiaquest.com">Arcadia Quest</a> is © Spaghetti Western Games / Cool Mini or Not.
+      </footer>
+
+    </div>
+    
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    
+    <!-- build:js(.) scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+  </body>
+</html>
