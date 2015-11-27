@@ -26,6 +26,18 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <script type="text/javascript">
+      (function() {
+          var path = '//easy.myfonts.net/v2/js?sid=2467(font-family=Highlander+Book)&sid=215084(font-family=Highlander+Std+Book)&sid=215086(font-family=Highlander+Std+Bold)&sid=215088(font-family=Highlander+Std+Medium)&key=9maOlgn9fR',
+              protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+              trial = document.createElement('script');
+          trial.type = 'text/javascript';
+          trial.async = true;
+          trial.src = protocol + path;
+          var head = document.getElementsByTagName("head")[0];
+          head.appendChild(trial);
+      })();
+  </script>
 
     
     <div class="container">
@@ -41,9 +53,23 @@
 
       <div class="offscreen">
         <img id="hero-src" crossOrigin="anonymous" src="images/blank-image.png" alt="hero image" class="offscreen" />
-        <img id="monster-src" crossOrigin="anonymous" src="images/blank-image.png" alt="hero image" class="offscreen" />
+        <img id="monster-src" crossOrigin="anonymous" src="images/blank-image.png" alt="monster image" class="offscreen" />
+        <img id="monster-melee-src" crossOrigin="anonymous" src="images/monster-melee.png" alt="melee image" class="offscreen" />
+        <img id="monster-ranged-src" crossOrigin="anonymous" src="images/monster-ranged.png" alt="ranged image" class="offscreen" />
+        <img id="monster-defense-src" crossOrigin="anonymous" src="images/monster-defense.png" alt="defense image" class="offscreen" />
         <div style="font-family: kingthings_petrockregular" class="offscreen">.</div>
-        <div style="font-family: merienda_oneregular" class="offscreen">.</div>
+        <!-- <div style="font-family: merienda_oneregular" class="offscreen">.</div> -->
+        <div style="font-family: 'Highlander Std Book'" class="offscreen">.</div>
+        <div style="font-family: 'Highlander Std Bold'" class="offscreen">.</div>
+
+        <!-- 
+
+        font-family: 'Highlander Book'
+        font-family: 'Highlander Std Book'
+        font-family: 'Highlander Std Bold'
+        font-family: 'Highlander Std Medium'
+
+        -->
 
         <img id="placeholder-hero" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Hero.jpg" />
         <img id="placeholder-monster" class="placeholder-image" src="../images/AQ-Blank-Cards/Blank Card - Monster Melee Level 1.jpg" />
@@ -53,17 +79,7 @@
 
 
       <div class="row generator-panel" id="hero-generator">
-        <div id="hero-cards" class="col-xs-12 col-md-7 center">
-          <div class="progress" style="display:none">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-              Generating
-            </div>
-          </div>
-          
-
-
-        </div>
-
+        <div id="hero-cards" class="col-xs-12 col-md-7 center"></div>
         <div class="col-xs-12 col-md-5 form-area">
         <form method="get" action="/" id="hero-form" role="form">
           <div class="form-group col-xs-12 col-sm-6">
@@ -72,8 +88,8 @@
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="hero-image">Hero Image URL</label>
-            <input type="text" class="form-control" name="hero-image" id="hero-image" value="http://orig07.deviantart.net/fabc/f/2010/248/3/a/bidoof_chibi_by_inintendo-d2y30k2.png">
-            <!-- <input type="text" class="form-control" name="hero-image" id="hero-image" value="images/greensleeves.png"> -->
+            <!-- <input type="text" class="form-control" name="hero-image" id="hero-image" value="http://orig07.deviantart.net/fabc/f/2010/248/3/a/bidoof_chibi_by_inintendo-d2y30k2.png"> -->
+            <input type="text" class="form-control" name="hero-image" id="hero-image" value="images/greensleeves.png">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="defense">Defense</label>
@@ -99,35 +115,17 @@
       </div>
 
       <div class="row generator-panel" id="monster-generator">
-        <div class="col-xs-12 col-md-7 center">
-          <div class="monster">
-            <div class="picture"></div>
-            <div class="overlay"></div>
-            <div class="defense-overlay"></div>
-            <div class="ranged-overlay"></div>
-            <div class="name"></div>
-            <div class="tier"></div>
-            <div class="gold"></div>
-            <div class="health"></div>
-            <div class="overkill"></div>
-            <div class="defense"></div>
-            <div class="movement"></div>
-            <div class="attack"></div>
-            <div class="ability"></div>
-            <div class="description"></div>
-            <div class="reroll"></div>
-          </div>
-        </div>
+        <div id="monster-cards" class="col-xs-12 col-md-7 center"></div>
       
         <div class="col-xs-12 col-md-5 form-area">
         <form id="monster-form" role="form">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-name">Monster Name</label>
-            <input type="text" class="form-control" id="monster-name" value="FlowerCat">
+            <input type="text" class="form-control" id="monster-name" value="Evil Greensleeves">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-image">Monster Image</label>
-            <input type="text" class="form-control" id="monster-image" value="http://img3.wikia.nocookie.net/__cb20111104195313/fairytail/images/e/e0/Chibi_Pantherlily.png">
+            <input type="text" class="form-control" id="monster-image" value="images/greensleeves.png">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-level">Level</label>
@@ -140,7 +138,12 @@
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-tier">Monster Tier</label>
-            <input type="text" class="form-control" id="monster-tier" value="Minor Minion">
+            <select class="form-control" id="monster-tier">
+              <option value="Minor Minion">Minor Minion</option>
+              <option value="Major Minion">Major Minion</option>
+              <option value="Minor Villian">Minor Villain</option>
+              <option value="Major Villain">Major Villain</option>
+            </select>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-attack-type">Attack Type</label>
@@ -151,7 +154,7 @@
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-defense">Defense</label>
-            <input type="text" class="form-control" id="monster-defense" value="">
+            <input type="text" class="form-control" id="monster-defense" value="1">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-health">Health</label>
@@ -175,11 +178,11 @@
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-skill-name">Ability Name</label>
-            <input type="text" class="form-control" id="monster-skill-name" value="Cat Scratch">
+            <input type="text" class="form-control" id="monster-skill-name" value="Bow Punch">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="monster-skill-description">Ability Description</label>
-            <textarea class="form-control" id="monster-skill-description" rows="3"></textarea>
+            <textarea class="form-control" id="monster-skill-description" rows="3">When Greensleeves is hit with a crit, he deals 1 wound to the attacking hero, regardless of overkill.</textarea>
           </div>
           <div class="form-group col-xs-12">
             <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />
@@ -189,14 +192,14 @@
       </div>
 
       <div class="row generator-panel" id="quest-generator">
-        <div class="col-xs-12 col-md-7 center">
+        <div id="quest-cards" class="col-xs-12 col-md-7 center">
         </div>
 
         <div class="col-xs-12 col-md-5 form-area">
         <form method="get" action="/" id="quest-form" role="form">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="quest-name">Quest Name</label>
-            <input type="text" class="form-control" name="quest-name" id="quest-name" value="Jaeger Bomb">
+            <input type="text" class="form-control" name="quest-name" id="quest-name" value="Kill Greensleeves">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="quest-image">Quest Image URL</label>
@@ -214,26 +217,26 @@
       </div>
 
       <div class="row generator-panel" id="upgrade-generator">
-        <div class="col-xs-12 col-md-7 center">
+        <div id="upgrade-cards"class="col-xs-12 col-md-7 center">
         </div>
 
         <div class="col-xs-12 col-md-5 form-area">
         <form method="get" action="/" id="upgrade-form" role="form">
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-name">Upgrade Name</label>
-            <input type="text" class="form-control" name="upgrade-name" id="upgrade-name" value="Jaeger Bomb">
+            <input type="text" class="form-control" name="upgrade-name" id="upgrade-name" value="Distracting Treasure">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-image">Upgrade Image URL</label>
-            <input type="text" class="form-control" name="upgrade-image" id="upgrade-image" value="images/greensleeves.png">
+            <input type="text" class="form-control" name="upgrade-image" id="upgrade-image" value="images/chest.png">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
-            <label for="upgrade-subname">Subname</label>
-            <input type="text" class="form-control" name="health" id="upgrade-subname" value="5">
+            <label for="upgrade-subname">Reward Location</label>
+            <input type="text" class="form-control" name="health" id="upgrade-subname" value="">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-cost">Cost</label>
-            <input type="text" class="form-control" name="health" id="upgrade-cost" value="5">
+            <input type="text" class="form-control" name="health" id="upgrade-cost" value="2">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-type">Upgrade Type</label>
@@ -257,15 +260,15 @@
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-category">Category</label>
-            <input type="text" class="form-control" name="health" id="upgrade-category" value="5">
+            <input type="text" class="form-control" name="health" id="upgrade-category" value="Gear">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-attack">Attack</label>
-            <input type="text" class="form-control" name="health" id="upgrade-attack" value="5">
+            <input type="text" class="form-control" name="health" id="upgrade-attack" value="">
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="upgrade-description">Upgrade Description</label>
-            <textarea class="form-control" name="skill-description" id="upgrade-description" rows="3">When wounded and attacking with a Sword attack card, roll an extra attack die for each wound.</textarea>
+            <textarea class="form-control" name="skill-description" id="upgrade-description" rows="3">Spend 1 coin to prevent all damage from an attack.</textarea>
           </div>
           <div class="form-group col-xs-12">
             <input type="submit" value="Generate Card" class="btn btn-primary btn-lg" />

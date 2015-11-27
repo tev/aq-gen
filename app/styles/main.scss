@@ -28,7 +28,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
     font-style: normal;
 
 }
-
+/*
 @font-face {
     font-family: 'merienda_oneregular';
     src: url('../fonts/meriendaone-regular-webfont.eot');
@@ -42,6 +42,32 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 }
 
+@font-face {
+    font-family: 'itchighlander_lt_bookregular';
+    src: url('../fonts/itc-highlander-lt-book-webfont.eot');
+    src: url('../fonts/itc-highlander-lt-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/itc-highlander-lt-book-webfont.woff2') format('woff2'),
+         url('../fonts/itc-highlander-lt-book-webfont.woff') format('woff'),
+         url('../fonts/itc-highlander-lt-book-webfont.ttf') format('truetype'),
+         url('../fonts/itc-highlander-lt-book-webfont.svg#merienda_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'itchighlander_lt_bookbold';
+    src: url('../fonts/itc-highlander-lt-bold-webfont.eot');
+    src: url('../fonts/itc-highlander-lt-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/itc-highlander-lt-bold-webfont.woff2') format('woff2'),
+         url('../fonts/itc-highlander-lt-bold-webfont.woff') format('woff'),
+         url('../fonts/itc-highlander-lt-bold-webfont.ttf') format('truetype'),
+         url('../fonts/itc-highlander-lt-bold-webfont.svg#merienda_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+
 .row {
   margin-bottom: 30px;
 }
@@ -49,7 +75,6 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
   background: #0c640e url("../images/felt.png")
 }
